@@ -19,10 +19,11 @@ namespace cifrariodiCesare2
         }
 
         private void btn_cripta_Click(object sender, EventArgs e)
-        {
+        {    // DICHIARAZIONI VARIABILI
             string frase = txt_n1.Text.ToUpper();
             string fraseCifrata = "";
             string chiave = txt_n2.Text;
+            // MESSAGGIO PER QUANDO NON CI SONO I DATI
             if (string.IsNullOrEmpty(frase) || (string.IsNullOrEmpty(chiave)))
             {
                 MessageBox.Show(" inserisci i parametri");
@@ -52,13 +53,13 @@ namespace cifrariodiCesare2
             string fraseCifrata = txt_n3.Text.ToUpper();
             string chiave = txt_n4.Text;
             string fraseDecifrata = "";
-            int chiaveNum = int.Parse(chiave);
             if (string.IsNullOrEmpty(frase) || (string.IsNullOrEmpty(chiave)))
             {
                 MessageBox.Show(" inserisci i parametri");
             }
             else
             {
+                int chiaveNum = int.Parse(chiave);
                 for (int i = 0; i < frase.Length; i++)
                 {
                     char lettera = fraseCifrata[i];
