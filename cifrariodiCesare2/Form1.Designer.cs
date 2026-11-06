@@ -35,7 +35,7 @@
             this.txt_n2 = new System.Windows.Forms.TextBox();
             this.lbl_n3 = new System.Windows.Forms.Label();
             this.lbl_n1 = new System.Windows.Forms.Label();
-            this.lbl_risultato = new System.Windows.Forms.Label();
+            this.lbl_ris = new System.Windows.Forms.Label();
             this.txt_n4 = new System.Windows.Forms.TextBox();
             this.lbl_n5 = new System.Windows.Forms.Label();
             this.txt_n3 = new System.Windows.Forms.TextBox();
@@ -103,14 +103,14 @@
             this.lbl_n1.TabIndex = 6;
             this.lbl_n1.Text = "RISULTATO";
             // 
-            // lbl_risultato
+            // lbl_ris
             // 
-            this.lbl_risultato.AutoSize = true;
-            this.lbl_risultato.Location = new System.Drawing.Point(392, 220);
-            this.lbl_risultato.Name = "lbl_risultato";
-            this.lbl_risultato.Size = new System.Drawing.Size(68, 13);
-            this.lbl_risultato.TabIndex = 12;
-            this.lbl_risultato.Text = "RISULTATO";
+            this.lbl_ris.AutoSize = true;
+            this.lbl_ris.Location = new System.Drawing.Point(392, 220);
+            this.lbl_ris.Name = "lbl_ris";
+            this.lbl_ris.Size = new System.Drawing.Size(68, 13);
+            this.lbl_ris.TabIndex = 12;
+            this.lbl_ris.Text = "RISULTATO";
             // 
             // txt_n4
             // 
@@ -159,7 +159,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lbl_risultato);
+            this.Controls.Add(this.lbl_ris);
             this.Controls.Add(this.txt_n4);
             this.Controls.Add(this.lbl_n5);
             this.Controls.Add(this.txt_n3);
@@ -188,7 +188,7 @@
         private System.Windows.Forms.TextBox txt_n2;
         private System.Windows.Forms.Label lbl_n3;
         private System.Windows.Forms.Label lbl_n1;
-        private System.Windows.Forms.Label lbl_risultato;
+        private System.Windows.Forms.Label lbl_ris;
         private System.Windows.Forms.TextBox txt_n4;
         private System.Windows.Forms.Label lbl_n5;
         private System.Windows.Forms.TextBox txt_n3;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -61,14 +62,36 @@ namespace cifrariodiCesare2
                 for (int i = 0; i < frase.Length; i++)
                 {
                     char lettera = fraseCifrata[i];
-                    if( lettera >= 'A' && lettera <='z')
+                    if (lettera != ' ')
                     {
-                        char nuovaLett = (char)(lettera-chiaveNum);
+                        if (lettera >= 'A' && lettera <= 'z')
+                        {
+                            char nuovaLett = (char)(lettera - chiaveNum);
+                            if (nuovaLett < 'A')
+                            {
+                                nuovaLett = (char)(nuovaLett + 26);
+                            }
+                            fraseDecifrata = fraseDecifrata + (char)nuovaLett;
+                        }
+                        else
+                        {
+                            fraseDecifrata = fraseDecifrata + (char)lettera;
+                        }
                     }
-                    
-                
+                    else
+                    {
+                        fraseDecifrata = fraseDecifrata + ' ';
+                    }
+                   
+
+                }
+
             }
+            lbl_ris.Text = fraseDecifrata;
+
         }
+        
+
     }
 }
     
