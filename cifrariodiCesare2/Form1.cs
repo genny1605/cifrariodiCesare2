@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace cifrariodiCesare2
 {
-    public partial class Form1 : Form
+    public partial class lbl_risu : Form
     {
-        public Form1()
+        public lbl_risu()
         {
             InitializeComponent();
         }
