@@ -30,7 +30,7 @@ namespace cifrariodiCesare2
             }
             else
             {
-                int chiaveNum = int.Parse(chiave);
+                int chiaveNum = int.Parse(chiave) % 26;
                 for (int i = 0; i < frase.Length; i++)
                 {
                     char lettera = frase[i];
@@ -47,7 +47,7 @@ namespace cifrariodiCesare2
 
         }
 
-        private void btn_decripta_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             string frase = txt_n3.Text.ToUpper();
             string fraseCifrata = txt_n3.Text.ToUpper();
@@ -59,7 +59,7 @@ namespace cifrariodiCesare2
             }
             else
             {
-                int chiaveNum = int.Parse(chiave);
+                int chiaveNum = int.Parse(chiave) % 26;
                 for (int i = 0; i < frase.Length; i++)
                 {
                     char lettera = fraseCifrata[i];
@@ -83,17 +83,59 @@ namespace cifrariodiCesare2
                     {
                         fraseDecifrata = fraseDecifrata + ' ';
                     }
-                   
+
 
                 }
 
             }
             lbl_ris.Text = fraseDecifrata;
+        }
+
+        private void btn_n1_Click(object sender, EventArgs e)
+        {
+            // DICHIARAZIONI VARIABILI
+            string frase = txt_n5.Text.ToUpper();
+            string fraseCifrata = "";
+            string chiave = txt_n6.Text;
+            // MESSAGGIO PER QUANDO NON CI SONO I DATI
+            if (string.IsNullOrEmpty(frase) || (string.IsNullOrEmpty(chiave)))
+            {
+                MessageBox.Show(" inserisci i parametri");
+            }
+            else
+            {
+                int sommaChiave = 0;
+                foreach (char c in chiave.ToUpper())
+                {
+                    if (char.IsLetter(c))
+                    {
+                        sommaChiave += (c - 'A');
+                    }
+                }
+                int chiaveNum = sommaChiave % 26;
+                for (int i = 0; i < frase.Length; i++)
+                {
+                    char lettera = frase[i];
+                    char nuovaLett = (char)(lettera + chiaveNum);
+                    if ((nuovaLett > 'Z') || (nuovaLett > 'z'))
+                    {
+                        nuovaLett = (char)(nuovaLett - 26);
+                    }
+                    fraseCifrata = fraseCifrata + (char)nuovaLett;
+                }
+            }
+            lbl_r.Text = fraseCifrata;
+
 
         }
-        
 
-    }
-}
     
 
+
+
+        private void btn_n2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
