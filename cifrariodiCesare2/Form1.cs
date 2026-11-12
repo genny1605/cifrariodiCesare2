@@ -48,7 +48,7 @@ namespace cifrariodiCesare2
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {   
             string frase = txt_n3.Text.ToUpper();
             string fraseCifrata = txt_n3.Text.ToUpper();
             string chiave = txt_n4.Text;
@@ -103,7 +103,8 @@ namespace cifrariodiCesare2
                 MessageBox.Show(" inserisci i parametri");
             }
             else
-            {
+            {   // CONVERTO LA CHIAVE IN STRINGA
+                int chiaveIndex= 0;
                 int sommaChiave = 0;
                 foreach (char c in chiave.ToUpper())
                 {
@@ -113,18 +114,19 @@ namespace cifrariodiCesare2
                     }
                 }
                 int chiaveNum = sommaChiave % 26;
-                for (int i = 0; i < frase.Length; i++)
+                for (int i = 0; i < fraseCifrata.Length; i++)
                 {
-                    char lettera = frase[i];
+                    char lettera = fraseCifrata[i];
                     char nuovaLett = (char)(lettera + chiaveNum);
-                    if ((nuovaLett > 'Z') || (nuovaLett > 'z'))
+                    if ((lettera >='A') && (lettera <= 'Z'))
                     {
                         nuovaLett = (char)(nuovaLett - 26);
+                        int shift = chiave[chiaveIndex % chiave.Length] - 'A';
                     }
                     fraseCifrata = fraseCifrata + (char)nuovaLett;
                 }
             }
-            lbl_r.Text = fraseCifrata;
+                lbl_r.Text = fraseCifrata;
 
 
         }
@@ -134,8 +136,57 @@ namespace cifrariodiCesare2
 
 
         private void btn_n2_Click(object sender, EventArgs e)
-        {
+        {   // DICHIARO LE VARIABILI
+            string frase = txt_n10.Text.ToUpper();
+            string fraseCifrata = txt_n10.Text.ToUpper();
+            string chiave = txt_n12.Text;
+            string fraseDecifrata = "";
+            // MESSAGGIO PER QUANDO NON CI SONO I DATI
+            if (string.IsNullOrEmpty(frase) || (string.IsNullOrEmpty(chiave)))
+            {
+                MessageBox.Show(" inserisci i parametri");
+            }
+            else
+            {   // CONVERTO LA CHIAVE IN STRINGA 
+                int sommaChiave = 0;
+                foreach (char c in chiave.ToUpper())
+                {
+                    if (char.IsLetter(c))
+                    {
+                        sommaChiave += (c - 'A');
+                    }
+                }
+                int chiaveNum = sommaChiave % 26;
 
+                for (int i = 0; i < frase.Length; i++)
+                {
+                    char lettera = fraseCifrata[i];
+                    if (lettera != ' ')
+                    {
+                        if (lettera >= 'A' && lettera <= 'z')
+                        {
+                            char nuovaLett = (char)(lettera - chiaveNum);
+                            if (nuovaLett < 'A')
+                            {
+                                nuovaLett = (char)(nuovaLett + 26);
+                            }
+                            fraseDecifrata = fraseDecifrata + (char)nuovaLett;
+                        }
+                        else
+                        {
+                            fraseDecifrata = fraseDecifrata + (char)lettera;
+                        }
+                    }
+                    else
+                    {
+                        fraseDecifrata = fraseDecifrata + ' ';
+                    }
+
+
+                }
+
+            }
+            lbl_risul.Text = fraseDecifrata;
         }
     }
 }
